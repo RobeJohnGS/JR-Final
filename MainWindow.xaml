@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JR_Final"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600">
+        Title="MainWindow" Height="725" Width="600">
     <Window.Resources>
         <Style TargetType="TextBlock" x:Key="TitleText">
             <Setter Property="TextAlignment" Value="Center"/>
@@ -16,7 +16,7 @@
     <StackPanel>
         <TextBlock Margin="0, 20, 0, 0" Height="80" Style="{StaticResource TitleText}">
             <!--Title-->
-            Blocko
+            Ono
         </TextBlock>
     <!--Game Grid-->
         <Grid Margin="100, 20, 100, 30" Height="380">
@@ -81,7 +81,10 @@
 
             </Button>
         </Grid>
-        <Button x:Name="Solve" Height="40" Margin="120, 0, 120, 0">
+        <Button x:Name="Start" Height="40" Margin="120, 0, 120, 0" Click="Start_Click">
+            Start
+        </Button>
+        <Button x:Name="Solve" Height="40" Margin="120, 40, 120, 0">
             Solve
         </Button>
     </StackPanel>

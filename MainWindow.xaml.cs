@@ -25,6 +25,7 @@ namespace JR_Final
         Random random = new Random();
         List<Button> buttons;
         int[] blueBtns = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        int[] buttonNums;
         public MainWindow()
         {
             InitializeComponent();
@@ -51,11 +52,18 @@ namespace JR_Final
             buttons.Add(btn14);
             buttons.Add(btn15);
             buttons.Add(btn16);
+            foreach(Button btn in buttons)
+            {
+                btn.Background = Brushes.OrangeRed;
+            }
         }
 
         public void GenerateBlue()
         {
-            for (int i = 0; i < random.Next(3, 6); i++)
+            int buttonNumCount = 0;
+            int blueAmt = random.Next(3, 6);
+            buttonNums = new int[blueAmt];
+            for (int i = 0; i < blueAmt; i++)
             {
                 int bluePos = random.Next(blueBtns.Length);
                 if (blueBtns[bluePos] != 1)
@@ -67,6 +75,27 @@ namespace JR_Final
                     continue;
                 }
             }
+
+            for(int i = 0; i < blueBtns.Length; i++)
+            {
+                if (blueBtns[i] == 1)
+                {
+                    buttonNums[buttonNumCount] = random.Next(1, 4);
+                    buttons[i].Background = Brushes.Blue;
+                    buttons[i].Content = buttonNums[buttonNumCount];
+                    buttonNumCount++;
+                }
+            }
+        }
+
+        public void GeneratePuzzle(int buttonNum)
+        {
+            
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            GenerateBlue();
         }
     }
 }
